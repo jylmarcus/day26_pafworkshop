@@ -2,6 +2,7 @@ package paf.visa.day26_pafworkshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import paf.visa.day26_pafworkshop.service.BoardgamesService;
 
 @RestController
-@RequestMapping("/games")
+@RequestMapping("/api/games")
+@CrossOrigin(origins="*")
 public class BoardgamesRestController {
     
     @Autowired
