@@ -26,7 +26,7 @@ public class BoardgamesService {
         JsonArrayBuilder gamesArrayBuilder = Json.createArrayBuilder();
         for (Document d: results) {
             JsonObject json = Json.createObjectBuilder()
-            .add("game_id", d.getInteger("_id"))
+            .add("game_id", d.getObjectId("_id").toString())
             .add("name", d.getString("name")).build();
 
             gamesArrayBuilder.add(json);

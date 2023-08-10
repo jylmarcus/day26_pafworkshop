@@ -20,12 +20,14 @@ public class BoardgamesRestController {
     private BoardgamesService boardgamesService;
 
     @GetMapping (produces = MediaType.APPLICATION_JSON_VALUE)
-    public String findGamesWithLimitOffset(@RequestParam(name="limit") Integer limit, @RequestParam(name="offset") Integer offset) {
+    public String findGamesWithLimitOffset(@RequestParam(name="limit", required=false) Integer limit, @RequestParam(name="offset", required=false) Integer offset) {
+        limit = limit == null? 5 : limit;
+        offset = offset == null? 0: offset;
         return boardgamesService.findGamesWithLimitOffset(limit, offset).toString();
     }
 
     @GetMapping(path="/rank", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String findGamesByRankWithLimitOffset(@RequestParam(name="limit") Integer limit, @RequestParam(name="offset") Integer offset) {
+    public String findGamesByRankWithLimitOffset(@RequestParam(name="limit", required=false) Integer limit, @RequestParam(name="offset", required=false) Integer offset) {
         return boardgamesService.findGamesByRankingWithLimitOffset(limit,offset).toString();
     }
 
